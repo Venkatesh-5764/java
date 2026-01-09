@@ -1,0 +1,65 @@
+**Quick Answer:**
+The Java **Map interface** defines key-value collections with unique keys. It has several implementations like **HashMap, TreeMap, LinkedHashMap, Hashtable, EnumMap, WeakHashMap, IdentityHashMap, and ConcurrentHashMap**. The main difference: **HashMap** is fast (average \(O(1)\)) but unordered, while **TreeMap** is slower (\(O(\log n)\)) but keeps keys sorted.
+
+---
+
+## 🗂 Map Interface Overview
+- **Package:** `java.util`
+- **Purpose:** Stores key-value pairs, where keys are unique and each key maps to one value.
+- **Key Features:**
+  - No duplicate keys.
+  - Values can be duplicated.
+  - Provides operations like `put()`, `get()`, `remove()`, `containsKey()`, `containsValue()`, `size()`, `isEmpty()`, `keySet()`, `values()`, `entrySet()`.
+
+---
+
+## 🔑 Common Methods in Map Interface
+- `put(K key, V value)` → Insert key-value pair.
+- `get(Object key)` → Retrieve value by key.
+- `remove(Object key)` → Delete entry by key.
+- `containsKey(Object key)` → Check if key exists.
+- `containsValue(Object value)` → Check if value exists.
+- `size()` → Number of entries.
+- `isEmpty()` → Check if map is empty.
+- `keySet()` → Returns all keys.
+- `values()` → Returns all values.
+- `entrySet()` → Returns all key-value pairs.
+
+---
+
+## 📚 Types of Map Implementations
+Here are the main classes that implement `Map`:
+
+| **Type**              | **Internal Structure** | **Ordering** | **Null Keys** | **Performance** | **Best Use Case** |
+|------------------------|------------------------|---------------|----------------|-----------------|-------------------|
+| **HashMap**           | Hash Table             | No order      | Allows 1 null key | \(O(1)\) average for get/put | Fast lookups, general use |
+| **TreeMap**           | Red-Black Tree         | Sorted by keys | No null keys   | \(O(\log n)\) for get/put | Sorted maps, range queries |
+| **LinkedHashMap**     | Hash Table + Linked List | Insertion order | Allows 1 null key | Slightly slower than HashMap | Predictable iteration order |
+| **Hashtable**         | Hash Table             | No order      | No null keys   | Thread-safe but slower | Legacy synchronized map |
+| **EnumMap**           | Array (for enums)      | Natural enum order | No null keys | Very fast | Keys restricted to enums |
+| **WeakHashMap**       | Hash Table with weak refs | No order | Allows 1 null key | Varies | Cache-like structures (GC removes unused keys) |
+| **IdentityHashMap**   | Hash Table (== instead of equals) | No order | Allows null | Fast but unusual | Special cases where reference equality matters |
+| **ConcurrentHashMap** | Segmented Hash Table   | No order      | No null keys   | Thread-safe, high performance | Multi-threaded apps |
+
+---
+
+## ⚖️ HashMap vs TreeMap (Key Differences)
+- **Ordering:**
+  - HashMap → No order.
+  - TreeMap → Keys sorted (natural or custom comparator).
+- **Performance:**
+  - HashMap → Faster (\(O(1)\) average).
+  - TreeMap → Slower (\(O(\log n)\)).
+- **Null Handling:**
+  - HashMap → Allows one null key.
+  - TreeMap → Does not allow null keys if natural ordering is used.
+- **Use Case:**
+  - HashMap → Best for quick lookups.
+  - TreeMap → Best when sorted order or range queries are needed.
+
+---
+
+✅ **Summary:**
+There are **8 major Map implementations** in Java. Use **HashMap** for speed when order doesn’t matter, and **TreeMap** when you need sorted keys. Other maps (LinkedHashMap, EnumMap, WeakHashMap, etc.) serve specialized purposes.
+
+Would you like me to create a **diagram showing how these Map types relate to the Map interface**? It could make the hierarchy clearer.
