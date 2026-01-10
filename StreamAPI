@@ -1,0 +1,87 @@
+**Quick Answer:**
+Java Streams are a powerful feature introduced in Java 8 that let you process collections in a *functional, declarative style* using operations like `filter`, `map`, `reduce`, and `collect`. They don’t store data but provide a pipeline to transform and aggregate it. Practicing with coding questions is the best way to build muscle memory and mastery of the concept.
+
+---
+
+## 🌊 What Are Streams in Java?
+- **Definition:** A Stream is a sequence of elements supporting functional-style operations.
+- **Key Features:**
+  - **Declarative:** Write concise, readable code without explicit loops.
+  - **Lazy Evaluation:** Operations are executed only when a terminal operation is invoked.
+  - **Parallel Execution:** Can run in parallel to leverage multi-core processors.
+  - **No Storage:** Streams don’t store data; they process it from a source (like a `List`, `Set`, or array).
+Sources:
+
+---
+
+## 📝 Syntax Overview
+Streams typically follow a **pipeline pattern**:
+
+```java
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+
+// Example: Filter names starting with 'C' and convert to uppercase
+List<String> result = names.stream()              // Create stream
+                           .filter(n -> n.startsWith("C")) // Intermediate operation
+                           .map(String::toUpperCase)       // Intermediate operation
+                           .collect(Collectors.toList());  // Terminal operation
+```
+
+### Common Operations
+| Operation Type       | Examples                          |
+|----------------------|-----------------------------------|
+| **Intermediate**     | `filter()`, `map()`, `sorted()`, `distinct()` |
+| **Terminal**         | `collect()`, `forEach()`, `reduce()`, `count()` |
+| **Creation**         | `stream()`, `Stream.of()`, `Arrays.stream()` |
+
+---
+
+## 💡 Practice Coding Questions
+Here are progressive exercises to strengthen your muscle memory:
+
+1. **Filtering & Collecting**
+   - Given a list of integers, return only even numbers using Streams.
+   ```java
+   List<Integer> evens = numbers.stream()
+                                .filter(n -> n % 2 == 0)
+                                .collect(Collectors.toList());
+   ```
+
+2. **Mapping**
+   - Convert a list of strings to their lengths.
+   ```java
+   List<Integer> lengths = words.stream()
+                                .map(String::length)
+                                .collect(Collectors.toList());
+   ```
+
+3. **Reducing**
+   - Find the sum of all numbers in a list.
+   ```java
+   int sum = numbers.stream()
+                    .reduce(0, Integer::sum);
+   ```
+
+4. **Finding Maximum**
+   - Find the longest string in a list.
+   ```java
+   String longest = words.stream()
+                         .max(Comparator.comparingInt(String::length))
+                         .orElse("None");
+   ```
+
+5. **Combining Operations**
+   - From a list of names, filter those starting with "A", convert to uppercase, sort, and collect.
+   ```java
+   List<String> result = names.stream()
+                              .filter(n -> n.startsWith("A"))
+                              .map(String::toUpperCase)
+                              .sorted()
+                              .collect(Collectors.toList());
+   ```
+
+6. **Parallel Streams**
+   - Count prime numbers in a large list using `parallelStream()`.
+
+---
+
