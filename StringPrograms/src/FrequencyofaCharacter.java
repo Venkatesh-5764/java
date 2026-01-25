@@ -24,8 +24,15 @@ public class FrequencyofaCharacter {
             charrfreq.put(chh,charrfreq.getOrDefault(chh,0)+1);
         }
         System.out.println(charrfreq);
+        for(char ch:sen.toCharArray()){
+            if(charfreq.get(ch)==1){
+                System.out.println("the first non repeating character is : "+ch);
+                return;
+            }
+        }
 
     }
+
 
     }
 
