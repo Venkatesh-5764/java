@@ -33,20 +33,18 @@ public class FrequencyofaCharacter {
 //                return;
 //            }
 //        }
-        // Good morning everyone today we are going to practice the string problem replace the first and last characters of the given string by swapping it
-        // we use two methods one is using array and another one is by using StringBuilder
-        // first we will see with array based;lets start
-//        char[] a = sen.toCharArray();
-//        char tem=a[0];
-//        a[0]=a[a.length-1];
-//        a[a.length-1]=tem;
-//        sen=new String(a);
-//        System.out.println(sen);
+
+        char[] a = sen.toCharArray();
+        char tem=a[0];
+        a[0]=a[a.length-1];
+        a[a.length-1]=tem;
+        sen=new String(a);
+        System.out.println(sen);
         //now we will see the StringBuilder approach
         StringBuilder s = new StringBuilder(sen);
-        char tem = s.charAt(0);
+        char temm = s.charAt(0);
         s.setCharAt(0,s.charAt(s.length()-1));
-        s.setCharAt(s.length()-1,tem);
+        s.setCharAt(s.length()-1,temm);
         System.out.println(s);
         }
 
